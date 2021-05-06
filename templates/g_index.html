@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<title>revenue</title>
+<body>
+<h2>売値固定シュミレーション</h2>
+<form action="/profit/" method="POST">
+<label>売値<input name="price"></input></label>
+<label>在庫<input name="store"></input></label>
+<label>支出<input name="pay"></input></label>
+<button>GO</button>
+</form>
+<h2>販売数固定シュミレーション</h2>
+<form action="/price/" method="POST">
+<label>売値 最小<input name="min_price"></input></label>
+<label>売値 最大<input name="max_price"></input></label>
+<label>売値幅<input name="step"></input></label>
+<label>最低販売数<input name="store"></input></label>
+<label>支出<input name="pay"></input></label>
+<button>GO</button>
+</form>
+</body>
+</html>

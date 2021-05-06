@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<title>revenue</title>
+</head>
+<body>
+<p>売値 最小:{{min_price}}円</p>
+<p>売値 最大:{{max_price}}円</p>
+<p>ステップ:{{step}}円</p>
+<p>在庫:{{store}}個</p>
+<p>支出:{{pay}}円</p>
+<h2>結果</h2>
+<table>
+  <thead>
+    <tr>
+      <th> 値段 </th>
+      <th> 売上 </th>
+      <th> 収益 </th>
+    </tr>
+  </thead>
+  <tbody>
+{%  for i in range(min_price, max_price+step, step) %}
+<tr>
+  <td>{{i}}</td>
+  <td>{{i*store}}円</td>
+  <td>{{i*store - pay}}円</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+<p>損益分岐点:{{(pay/store)|int}}円</p>
+<img src="data:image/png;base64,{{img_data}}"></img>
+<h2>売値固定シュミレーション</h2>
+<form action="/profit/" method="POST">
+<label>売値<input name="price"></input></label>
+<label>在庫<input name="store"></input></label>
+<label>支出<input name="pay"></input></label>
+<button>GO</button>
+</form>
+<h2>販売数固定シュミレーション</h2>
+<form action="/price/" method="POST">
+<label>売値 最小<input name="min_price"></input></label>
+<label>売値 最大<input name="max_price"></input></label>
+<label>売値幅<input name="step"></input></label>
+<label>最低販売数<input name="store"></input></label>
+<label>支出<input name="pay"></input></label>
+<button>GO</button>
+</form>
+</body>
+</html>
