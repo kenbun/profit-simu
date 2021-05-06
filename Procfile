@@ -1,0 +1,1 @@
+web: gunicorn profit-simu:app --log-file=-
